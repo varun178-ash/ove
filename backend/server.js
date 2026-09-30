@@ -1,7 +1,9 @@
 const http = require('http');
 const { spawn } = require('child_process');
-
+const fs = require('fs');
+const path = require('path');
 const PORT = process.env.PORT || 4000;
+const WEB_ROOT = path.join(__dirname, '..', 'web');
 
 const ENGINE_PATH =
     process.platform === 'win32'
@@ -181,6 +183,37 @@ const server = http.createServer((req, res) => {
 
         return;
     }
+
+    // Serve frontend files
+    const requestedPath = req.url === '/'
+        ? '/index.html'
+        : req.url.split('?')[0];
+
+    const filePath = path.join(WEB_ROOT, requestedPath);
+
+    if (
+        filePath.startsWith(WEB_ROOT) &&
+        fs.existsSync(filePath) &&
+        fs.statSync(filePath).isFile()
+    ) {
+        const ext = path.extname(filePath);
+
+        const contentTypes = {
+            '.html': 'text/html',
+            '.js': 'application/javascript',
+            '.css': 'text/css',
+            '.json': 'application/json'
+        };
+
+        res.writeHead(200, {
+            'Content-Type':
+                contentTypes[ext] || 'application/octet-stream'
+        });
+
+        fs.createReadStream(filePath).pipe(res);
+        return;
+    }
+
 
     res.writeHead(404, {
         'Content-Type': 'application/json'
