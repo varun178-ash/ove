@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  🌐 <a href="[YOUR_RENDER_URL](https://ove-f4lm.onrender.com)">🚀 PLAY OVE LIVE</a>
+  🌐 <a href="https://ove-f4lm.onrender.com/">🚀 PLAY OVE LIVE</a>
 </p>
 
 <p align="center">
@@ -31,7 +31,7 @@ The website combines a web-based chess interface with the **VICE chess engine** 
 
 ## 🌐 Live Demo
 
-🚀 **Play OVE:** [Open OVE](YOUR_RENDER_URL)
+🚀 **Play OVE:** [Open OVE](https://ove-f4lm.onrender.com/)L)
 
 > Practice chess against the VICE engine directly from your browser.
 
