@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OVE CHESS — Practice Arena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-viewport">
+    <!-- Top Navigation Header -->
+    <header class="site-header">
+      <a class="brand-link" href="index.html" id="brand-logo">
+        <span class="brand-diamond"></span>
+        <span>OVE</span>
+      </a>
+      <div class="header-actions">
+        <button class="nav-btn" id="btn-settings" title="Engine & Interface Settings">SETTINGS</button>
+        <button class="nav-btn primary" id="btn-top-new-game">NEW GAME</button>
+      </div>
+    </header>
+
+    <!-- Main Gameplay Arena -->
+    <main class="game-container">
+      <!-- Left: Chessboard Area -->
+      <section class="play-arena" aria-label="Chessboard view">
+        <div class="board-stage">
+          <!-- Opponent Bar -->
+          <div class="player-strip" id="strip-computer">
+            <div class="player-meta">
+              <div class="avatar-badge engine" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                  <rect x="9" y="9" width="6" height="6"></rect>
+                  <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"></path>
+                </svg>
+              </div>
+              <div class="player-info">
+                <div class="player-name">
+                  <span>OVE</span>
+                  <span class="badge-sub" id="engine-sub-badge">VICE Engine</span>
+                </div>
+                <div class="player-status-indicator" id="engine-status">
+                  <span class="status-dot"></span>
+                  <span id="engine-status-text">Standby</span>
+                </div>
+              </div>
+            </div>
+            <div class="captured-pieces" id="captured-by-computer" title="Pieces captured by OVE"></div>
+          </div>
+
+          <!-- 8x8 Interactive Board Container -->
+          <div class="board-wrapper" id="board-container">
+            <div class="board-grid" id="chessboard" role="grid" aria-label="8x8 Chessboard"></div>
+          </div>
+
+          <!-- Human Player Bar -->
+          <div class="player-strip active-turn" id="strip-player">
+            <div class="player-meta">
+              <div class="avatar-badge" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div class="player-info">
+                <div class="player-name">
+                  <span>You</span>
+                  <span class="badge-sub">White</span>
+                </div>
+                <div class="player-status-indicator" id="player-status">
+                  <span class="status-dot active"></span>
+                  <span id="player-status-text">Your turn</span>
+                </div>
+              </div>
+            </div>
+            <div class="captured-pieces" id="captured-by-player" title="Pieces captured by you"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Side Control Panel -->
+      <aside class="side-panel" aria-label="Game controls and notation">
+        <!-- Game Status -->
+        <div class="panel-section" id="status-section">
+          <div class="panel-header-label">
+            <span>Game Status</span>
+          </div>
+          <div class="status-banner" id="status-banner">
+            <span class="status-pulse-circle"></span>
+            <div class="status-text-content">
+              <span class="status-primary" id="status-primary">Your turn</span>
+              <span class="status-secondary" id="status-secondary">White to move • Clock ready</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Difficulty Settings -->
+        <div class="panel-section" id="difficulty-section">
+          <div class="panel-header-label">
+            <span>Engine Level</span>
+          </div>
+          <div class="difficulty-group" role="radiogroup" aria-label="Engine Level">
+            <button type="button" role="radio" aria-checked="false" data-level="beginner" class="difficulty-btn">Beg</button>
+            <button type="button" role="radio" aria-checked="true" data-level="intermediate" class="difficulty-btn active">Int</button>
+            <button type="button" role="radio" aria-checked="false" data-level="expert" class="difficulty-btn">Exp</button>
+          </div>
+        </div>
+
+        <!-- PGN Move History -->
+        <div class="history-container" id="history-section">
+          <div class="panel-header-label">
+            <span>Move History</span>
+            <span style="font-family: var(--font-mono); font-size: 0.65rem;">PGN</span>
+          </div>
+          <div class="history-table-header">
+            <span>#</span>
+            <span>White</span>
+            <span>Black</span>
+          </div>
+          <div class="history-list" id="move-history-list" role="log" aria-live="polite">
+            <div class="history-row">
+              <span class="move-num">1.</span>
+              <span class="move-white">e4</span>
+              <span class="move-black">e5</span>
+            </div>
+            <div class="history-row">
+              <span class="move-num">2.</span>
+              <span class="move-white">Nf3</span>
+              <span class="move-black">Nc6</span>
+            </div>
+            <div class="history-row current-row">
+              <span class="move-num">3.</span>
+              <span class="move-white current-move">Bb5</span>
+              <span class="move-black">—</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="controls-footer">
+          <button class="btn-action danger" id="btn-resign" title="Resign the ongoing game">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
+            </svg>
+            RESIGN
+          </button>
+          <button class="btn-action accent" id="btn-new-game" title="Reset and start new game">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+            </svg>
+            NEW GAME
+          </button>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div>NO ACCOUNTS • NO CLUTTER</div>
+      <div>PRACTICE PLATFORM</div>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

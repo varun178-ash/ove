@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.*
+!.env.example
+
+.vscode/
+.DS_Store
+Thumbs.db
+
+*.log
+
+# Local Windows VICE executables
+engine/*.exes

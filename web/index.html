@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OVE CHESS — Practice Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-viewport">
+    <!-- Ambient Chessboard Background Layer -->
+    <div class="hero-board-bg-wrapper" aria-hidden="true">
+      <div class="chessboard-hero-container" id="chessboard-container">
+        <div class="chessboard-grid" id="chessboard-grid">
+          <!-- Continuous Highlight Overlays -->
+          <div class="highlight-trail" id="board-trail" style="transform: translate(0%, 600%); opacity: 0.7;"></div>
+          <div class="highlight-indicator" id="board-highlight" style="transform: translate(300%, 600%);"></div>
+          
+          <!-- 8x8 Background Board Squares -->
+          <!-- Rank 8 -->
+          <div class="sq light" data-file="0" data-rank="7" data-sq="a8"><span class="board-coord-rank">8</span></div>
+          <div class="sq dark" data-file="1" data-rank="7" data-sq="b8"></div>
+          <div class="sq light" data-file="2" data-rank="7" data-sq="c8"></div>
+          <div class="sq dark" data-file="3" data-rank="7" data-sq="d8"></div>
+          <div class="sq light" data-file="4" data-rank="7" data-sq="e8"></div>
+          <div class="sq dark" data-file="5" data-rank="7" data-sq="f8"></div>
+          <div class="sq light" data-file="6" data-rank="7" data-sq="g8"></div>
+          <div class="sq dark" data-file="7" data-rank="7" data-sq="h8"></div>
+          <!-- Rank 7 -->
+          <div class="sq dark" data-file="0" data-rank="6" data-sq="a7"><span class="board-coord-rank">7</span></div>
+          <div class="sq light" data-file="1" data-rank="6" data-sq="b7"></div>
+          <div class="sq dark" data-file="2" data-rank="6" data-sq="c7"></div>
+          <div class="sq light" data-file="3" data-rank="6" data-sq="d7"></div>
+          <div class="sq dark" data-file="4" data-rank="6" data-sq="e7"></div>
+          <div class="sq light" data-file="5" data-rank="6" data-sq="f7"></div>
+          <div class="sq dark" data-file="6" data-rank="6" data-sq="g7"></div>
+          <div class="sq light" data-file="7" data-rank="6" data-sq="h7"></div>
+          <!-- Rank 6 -->
+          <div class="sq light" data-file="0" data-rank="5" data-sq="a6"><span class="board-coord-rank">6</span></div>
+          <div class="sq dark" data-file="1" data-rank="5" data-sq="b6"></div>
+          <div class="sq light" data-file="2" data-rank="5" data-sq="c6"></div>
+          <div class="sq dark" data-file="3" data-rank="5" data-sq="d6"></div>
+          <div class="sq light" data-file="4" data-rank="5" data-sq="e6"></div>
+          <div class="sq dark" data-file="5" data-rank="5" data-sq="f6"></div>
+          <div class="sq light" data-file="6" data-rank="5" data-sq="g6"></div>
+          <div class="sq dark" data-file="7" data-rank="5" data-sq="h6"></div>
+          <!-- Rank 5 -->
+          <div class="sq dark" data-file="0" data-rank="4" data-sq="a5"><span class="board-coord-rank">5</span></div>
+          <div class="sq light" data-file="1" data-rank="4" data-sq="b5"></div>
+          <div class="sq dark" data-file="2" data-rank="4" data-sq="c5"></div>
+          <div class="sq light" data-file="3" data-rank="4" data-sq="d5"></div>
+          <div class="sq dark" data-file="4" data-rank="4" data-sq="e5"></div>
+          <div class="sq light" data-file="5" data-rank="4" data-sq="f5"></div>
+          <div class="sq dark" data-file="6" data-rank="4" data-sq="g5"></div>
+          <div class="sq light" data-file="7" data-rank="4" data-sq="h5"></div>
+          <!-- Rank 4 -->
+          <div class="sq light" data-file="0" data-rank="3" data-sq="a4"><span class="board-coord-rank">4</span></div>
+          <div class="sq dark" data-file="1" data-rank="3" data-sq="b4"></div>
+          <div class="sq light" data-file="2" data-rank="3" data-sq="c4"></div>
+          <div class="sq dark" data-file="3" data-rank="3" data-sq="d4"></div>
+          <div class="sq light" data-file="4" data-rank="3" data-sq="e4"></div>
+          <div class="sq dark" data-file="5" data-rank="3" data-sq="f4"></div>
+          <div class="sq light" data-file="6" data-rank="3" data-sq="g4"></div>
+          <div class="sq dark" data-file="7" data-rank="3" data-sq="h4"></div>
+          <!-- Rank 3 -->
+          <div class="sq dark" data-file="0" data-rank="2" data-sq="a3"><span class="board-coord-rank">3</span></div>
+          <div class="sq light" data-file="1" data-rank="2" data-sq="b3"></div>
+          <div class="sq dark" data-file="2" data-rank="2" data-sq="c3"></div>
+          <div class="sq light" data-file="3" data-rank="2" data-sq="d3"></div>
+          <div class="sq dark" data-file="4" data-rank="2" data-sq="e3"></div>
+          <div class="sq light" data-file="5" data-rank="2" data-sq="f3"></div>
+          <div class="sq dark" data-file="6" data-rank="2" data-sq="g3"></div>
+          <div class="sq light" data-file="7" data-rank="2" data-sq="h3"></div>
+          <!-- Rank 2 -->
+          <div class="sq light" data-file="0" data-rank="1" data-sq="a2"><span class="board-coord-rank">2</span></div>
+          <div class="sq dark" data-file="1" data-rank="1" data-sq="b2"></div>
+          <div class="sq light" data-file="2" data-rank="1" data-sq="c2"></div>
+          <div class="sq dark" data-file="3" data-rank="1" data-sq="d2"></div>
+          <div class="sq light" data-file="4" data-rank="1" data-sq="e2"></div>
+          <div class="sq dark" data-file="5" data-rank="1" data-sq="f2"></div>
+          <div class="sq light" data-file="6" data-rank="1" data-sq="g2"></div>
+          <div class="sq dark" data-file="7" data-rank="1" data-sq="h2"></div>
+          <!-- Rank 1 -->
+          <div class="sq dark" data-file="0" data-rank="0" data-sq="a1"><span class="board-coord-rank">1</span><span class="board-coord-file">a</span></div>
+          <div class="sq light" data-file="1" data-rank="0" data-sq="b1"><span class="board-coord-file">b</span></div>
+          <div class="sq dark" data-file="2" data-rank="0" data-sq="c1"><span class="board-coord-file">c</span></div>
+          <div class="sq light" data-file="3" data-rank="0" data-sq="d1"><span class="board-coord-file">d</span></div>
+          <div class="sq dark" data-file="4" data-rank="0" data-sq="e1"><span class="board-coord-file">e</span></div>
+          <div class="sq light" data-file="5" data-rank="0" data-sq="f1"><span class="board-coord-file">f</span></div>
+          <div class="sq dark" data-file="6" data-rank="0" data-sq="g1"><span class="board-coord-file">g</span></div>
+          <div class="sq light" data-file="7" data-rank="0" data-sq="h1"><span class="board-coord-file">h</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Soft Vignette Transition Layer -->
+    <div class="vignette-layer"></div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+      <a class="logo-container" href="index.html" id="brand-logo">
+        <span class="logo-mark"></span>
+        <span class="brand-title">OVE</span>
+      </a>
+      <nav class="nav-actions">
+        <a class="nav-link" href="game.html" id="nav-play">PLAY</a>
+        <a class="nav-link" href="#about" id="nav-about">ABOUT</a>
+      </nav>
+    </header>
+
+    <!-- Hero Content -->
+    <main class="hero-container">
+      <div class="hero-crown-mark" aria-hidden="true">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24">
+          <path d="M5 18h14M6 15h12M4 9l4 3 4-6 4 6 4-3v6H4V9z"></path>
+          <line x1="12" y1="3" x2="12" y2="4"></line>
+          <line x1="11" y1="3.5" x2="13" y2="3.5"></line>
+        </svg>
+      </div>
+      <h1 class="hero-title">OVE CHESS</h1>
+      <p class="hero-tagline">Sharpen your skills.</p>
+
+      <div class="btn-start-wrapper">
+        <a class="btn-start" href="game.html?difficulty=intermediate" id="btn-start">START</a>
+      </div>
+      <p class="engine-ready-tag">SOLO TRAINING VS ENGINE</p>
+
+      <!-- Difficulty Selection -->
+      <div class="homepage-difficulty-selector" id="difficulty-selector" role="radiogroup" aria-label="Game Difficulty">
+        <button type="button" role="radio" aria-checked="false" data-mode="beginner" class="homepage-difficulty-btn" onclick="selectDifficulty('beginner', this)">Beginner</button>
+        <button type="button" role="radio" aria-checked="true" data-mode="intermediate" class="homepage-difficulty-btn" onclick="selectDifficulty('intermediate', this)">Intermediate</button>
+        <button type="button" role="radio" aria-checked="false" data-mode="expert" class="homepage-difficulty-btn" onclick="selectDifficulty('expert', this)">Expert</button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-left">
+        <span>NO ACCOUNTS</span>
+        <span>•</span>
+        <span>NO CLUTTER</span>
+      </div>
+      <div class="footer-right">
+        <span>PRACTICE PLATFORM</span>
+      </div>
+    </footer>
+
+    <!-- About Modal -->
+    <div class="modal-backdrop" id="about-modal">
+      <div class="modal-box">
+        <h2>About OVE</h2>
+        <p>
+          OVE is a distraction-free chess practice platform engineered for dedicated players who want to sharpen their tactical and strategic intuition against a precision computer engine.
+        </p>
+        <p>
+          No logins, no ads, no rating anxiety, and no toxicity. Just pure, deliberate chess training.
+        </p>
+        <button class="modal-close-btn" id="modal-close" type="button">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    function selectDifficulty(mode, btn) {
+      document.querySelectorAll('.homepage-difficulty-btn').forEach(b => {
+        b.setAttribute('aria-checked', 'false');
+      });
+      btn.setAttribute('aria-checked', 'true');
+      const startBtn = document.getElementById('btn-start');
+      if (startBtn) {
+        startBtn.href = `game.html?difficulty=${mode}`;
+      }
+    }
+  </script>
+</body>
+</html>
