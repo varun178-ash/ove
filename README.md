@@ -5,6 +5,10 @@
 </p>
 
 <p align="center">
+  🌐 <a href="YOUR_RENDER_URL">🚀 PLAY OVE LIVE</a>
+</p>
+
+<p align="center">
   🎯 Solo Training &nbsp;•&nbsp; 🤖 VICE Engine &nbsp;•&nbsp; ⚡ 3 Difficulty Modes &nbsp;•&nbsp; 🌐 Web Based
 </p>
 
@@ -16,12 +20,20 @@
 
 Instead of focusing on online multiplayer, OVE focuses on **solo training** — allowing you to play against the computer, test your decisions, and practice different positions and strategies.
 
-The website combines a web-based chess interface with a **VICE chess engine** running through a Node.js backend.
+The website combines a web-based chess interface with the **VICE chess engine** running through a Node.js backend.
 
 > ♟️ Play.  
 > 🧠 Think.  
 > ⚡ Improve.  
 > 🎯 Sharpen your skills.
+
+---
+
+## 🌐 Live Demo
+
+🚀 **Play OVE:** [Open OVE](YOUR_RENDER_URL)
+
+> Practice chess against the VICE engine directly from your browser.
 
 ---
 
